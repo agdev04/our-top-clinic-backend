@@ -1,18 +1,13 @@
-FROM rust:1.82.0 AS builder
-WORKDIR /usr/src/app
+# 1. This tells docker to use the Rust official image
+FROM rust:1.82.0
 
-# First, copy manifests to cache dependency layer
-COPY Cargo.toml Cargo.lock ./
-RUN mkdir src && echo 'fn main() {}' > src/main.rs
-RUN cargo build --release || true
+# 2. Copy the files in your machine to the Docker image
+COPY ./ ./
 
-# Then, copy the entire source
-COPY . .
+# Build your program for release
 RUN cargo build --release
 
-FROM debian:bookworm-slim
-RUN apt-get update && apt-get install -y libpq-dev ca-certificates && rm -rf /var/lib/apt/lists/*
-COPY --from=builder /usr/src/app/target/release/our-top-clinic-backend /usr/local/bin/app
-ENV PORT=8080
-EXPOSE 8080
-CMD ["/usr/local/bin/app"]
+COPY .env .env
+
+# Run the binary
+CMD ["./target/release/our-top-clinic-backend"]
