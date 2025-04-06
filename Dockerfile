@@ -1,5 +1,12 @@
 FROM rust:1.82.0 AS builder
 WORKDIR /usr/src/app
+
+# First, copy manifests to cache dependency layer
+COPY Cargo.toml Cargo.lock ./
+RUN mkdir src && echo 'fn main() {}' > src/main.rs
+RUN cargo build --release || true
+
+# Then, copy the entire source
 COPY . .
 RUN cargo build --release
 
