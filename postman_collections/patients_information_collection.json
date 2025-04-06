@@ -1,0 +1,93 @@
+{
+  "info": {
+    "name": "Patients Information API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Patient",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"age\": 30\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/patients_information",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["patients_information"]
+        }
+      }
+    },
+    {
+      "name": "Get Patients",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/patients_information",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["patients_information"]
+        }
+      }
+    },
+    {
+      "name": "Get Patient by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/patients_information/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["patients_information", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Patient",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Jane Smith\",\n  \"age\": 28\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/patients_information/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["patients_information", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Patient",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8000/patients_information/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["patients_information", "1"]
+        }
+      }
+    }
+  ]
+}

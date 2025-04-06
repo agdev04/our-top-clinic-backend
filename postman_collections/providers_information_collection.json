@@ -1,0 +1,93 @@
+{
+  "info": {
+    "name": "Providers Information API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Provider",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 1,\n  \"license_number\": \"LIC123456\",\n  \"npi\": \"1234567890\",\n  \"specialty\": \"Cardiology\",\n  \"years_in_practice\": 10,\n  \"board_certified\": true,\n  \"accepting_new_patients\": true,\n  \"license_documents\": \"url1.jpg,url2.jpg\",\n  \"digital_signature\": \"signature.jpg\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/providers_information",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["providers_information"]
+        }
+      }
+    },
+    {
+      "name": "Get Providers",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/providers_information",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["providers_information"]
+        }
+      }
+    },
+    {
+      "name": "Get Provider by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/providers_information/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["providers_information", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Provider",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"license_number\": \"LIC654321\",\n  \"npi\": \"0987654321\",\n  \"specialty\": \"Neurology\",\n  \"years_in_practice\": 5,\n  \"board_certified\": false,\n  \"accepting_new_patients\": false,\n  \"license_documents\": \"updated_url1.jpg,updated_url2.jpg\",\n  \"digital_signature\": \"updated_signature.jpg\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/providers_information/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["providers_information", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Provider",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8000/providers_information/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["providers_information", "1"]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "info": {
+    "name": "Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"testuser\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\",\n  \"phone_number\": \"1234567890\",\n  \"address_street\": \"123 Main St\",\n  \"city\": \"Metropolis\",\n  \"state\": \"NY\",\n  \"zip_code\": \"12345\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users"]
+        }
+      }
+    },
+    {
+      "name": "Get Users",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users"]
+        }
+      }
+    },
+    {
+      "name": "Get User by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/users/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update User",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"updateduser\",\n  \"email\": \"updated@example.com\",\n  \"phone_number\": \"0987654321\",\n  \"address_street\": \"456 Elm St\",\n  \"city\": \"Gotham\",\n  \"state\": \"NJ\",\n  \"zip_code\": \"54321\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/users/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete User",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8000/users/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", "1"]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "Providers Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Provider Service",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"provider_id\": 1,\n  \"service_name\": \"General Checkup\",\n  \"description\": \"Routine health exam\",\n  \"price\": 50.0,\n  \"approval_status\": \"pending\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/patient-information",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["patient-information"]
+        }
+      }
+    },
+    {
+      "name": "Get Provider Services",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/patient-information/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["patient-information", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Provider Service Details",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"service_name\": \"Updated Service Name\",\n  \"description\": \"Updated description\",\n  \"price\": 75.0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/patient-information/update-provider-service/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["patient-information", "update-provider-service", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Provider Service Approval Status",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"approval_status\": \"approved\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/patient-information/update-provider-service-approval/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["patient-information", "update-provider-service-approval", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Provider Service",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8000/patient-information/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["patient-information", "1"]
+        }
+      }
+    }
+  ]
+}
