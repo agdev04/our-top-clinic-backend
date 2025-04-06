@@ -52,7 +52,7 @@ async fn main() -> std::io::Result<()> {
             .configure(guard_config)
             .wrap(Logger::default())
     })
-    .bind(("127.0.0.1", 8000))?
+    .bind(("127.0.0.1", 7777))?
     .run()
     .await
 }
