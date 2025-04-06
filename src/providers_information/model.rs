@@ -20,7 +20,8 @@ pub struct ProviderInformation {
 }
 
 #[derive(Insertable, Serialize, Deserialize)]
-#[table_name = "providers_information"]
+#[diesel(table_name = providers_information)]
+
 pub struct NewProviderInformation {
     pub user_id: i32,
     pub license_number: String,
@@ -34,7 +35,7 @@ pub struct NewProviderInformation {
 }
 
 #[derive(Serialize, Deserialize, AsChangeset)]
-#[table_name = "providers_information"]
+#[diesel(table_name = providers_information)]
 pub struct UpdateProviderInformation {
     pub license_number: Option<String>,
     pub npi: Option<String>,
